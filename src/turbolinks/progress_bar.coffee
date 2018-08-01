@@ -46,7 +46,7 @@ class Turbolinks.ProgressBar
   installProgressElement: ->
     @progressElement.style.width = 0
     @progressElement.style.opacity = 1
-    document.documentElement.insertBefore(@progressElement, document.body)
+    document.body.insertBefore(@progressElement, document.body.firstChild)
     @refresh()
 
   fadeProgressElement: (callback) ->
@@ -55,7 +55,7 @@ class Turbolinks.ProgressBar
 
   uninstallProgressElement: ->
     if @progressElement.parentNode
-      document.documentElement.removeChild(@progressElement)
+      document.body.removeChild(@progressElement)
 
   startTrickling: ->
     @trickleInterval ?= setInterval(@trickle, ANIMATION_DURATION)
