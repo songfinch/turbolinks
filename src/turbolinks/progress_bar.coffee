@@ -46,7 +46,7 @@ class Turbolinks.ProgressBar
   installProgressElement: ->
     @progressElement.style.width = 0
     @progressElement.style.opacity = 1
-    document.documentElement.insertBefore(@progressElement, document.body)
+    document.documentElement.insertBefore(@progressElement, document.body.firstChild)
     @refresh()
 
   fadeProgressElement: (callback) ->
